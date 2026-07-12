@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автоматическое удаление водяных знаков ИИ</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- ONNX Runtime для работы ИИ на процессоре/видеокарте пользователя -->
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Авто-удаление водяных знаков</h1>
+            <p>Просто загрузите фото. ИИ сам найдет и удалит все знаки. Безлимитно.</p>
+        </header>
+
+        <main>
+            <!-- Зона загрузки -->
+            <div id="drop-zone" class="drop-zone">
+                <p>Перетащите сюда фото или <label for="file-input" class="file-label">выберите на компьютере</label></p>
+                <input type="file" id="file-input" accept="image/*" hidden>
+            </div>
+
+            <!-- Результат обработки -->
+            <div id="result-container" class="hidden">
+                <div class="preview-box">
+                    <div>
+                        <h3>Оригинал</h3>
+                        <img id="img-original" src="" alt="Оригинал">
+                    </div>
+                    <div>
+                        <h3>Результат без знаков</h3>
+                        <canvas id="canvas-result"></canvas>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <button id="btn-reset" class="btn-secondary">Загрузить другое</button>
+                    <a id="btn-download" class="btn-success" download="no-watermark.png">Скачать результат</a>
+                </div>
+            </div>
+            
+            <div id="status" class="status">Ожидание загрузки...</div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
