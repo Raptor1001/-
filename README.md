@@ -1,1 +1,1 @@
-# -
+# Stinging watermarks with photos
